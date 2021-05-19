@@ -1,6 +1,7 @@
 package com.example.Profile;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -11,6 +12,11 @@ public class UserProfile {
     private String userName;
     private String userProfileLink;
 
+    public UserProfile(UUID userProfileID, String userName, String userProfileLink) {
+        this.userProfileID = userProfileID;
+        this.userName = userName;
+        this.userProfileLink = userProfileLink;
+    }
 
     public String getUserName() {
         return userName;
@@ -20,8 +26,8 @@ public class UserProfile {
         this.userName = userName;
     }
 
-    public String getUserProfileLink() {
-        return userProfileLink;
+    public Optional<String> getUserProfileLink() {
+        return Optional.ofNullable(userProfileLink);
     }
 
     public void setUserProfileLink(String userProfileLink) {
