@@ -1,4 +1,4 @@
-package com.example.Profile;
+package com.example.ImageUpload.Profile;
 
 import java.util.Objects;
 import java.util.Optional;

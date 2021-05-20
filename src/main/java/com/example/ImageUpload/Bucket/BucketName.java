@@ -1,4 +1,4 @@
-package com.example.Bucket;
+package com.example.ImageUpload.Bucket;
 
 public enum BucketName {
     PROFILE_IMAGE("dimplesapp-1");

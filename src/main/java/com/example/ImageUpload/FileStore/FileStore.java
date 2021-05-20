@@ -1,4 +1,4 @@
-package com.example.FileStore;
+package com.example.ImageUpload.FileStore;
 
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.AmazonS3;
@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @Service
 public class FileStore {
+
     private  final AmazonS3 s3;
 
     @Autowired
@@ -21,20 +22,20 @@ public class FileStore {
 
     public void save(String path,
                      String fileName,
-                     Optional<Map<String, String>> optionalMetaData,
+                     Optional<Map<String, String>> optionalMetadata,
                      InputStream inputStream) {
-        ObjectMetadata objectMetadata = new ObjectMetadata();
+        ObjectMetadata metadata = new ObjectMetadata();
 
-        optionalMetaData.ifPresent(map -> {
-            if(!map.isEmpty()) {
-                map.forEach(objectMetadata::addUserMetadata);
+        optionalMetadata.ifPresent(map -> {
+            if (!map.isEmpty()) {
+                map.forEach(metadata::addUserMetadata);
             }
         });
 
-                try {
-                    s3.putObject(path, fileName, inputStream, objectMetadata);
-                } catch (AmazonServiceException e) {
-                    throw  new IllegalStateException("Fail to store file in s3, e");
-                }
+        try {
+            s3.putObject(path, fileName, inputStream, metadata);
+        } catch (AmazonServiceException e) {
+            throw new IllegalStateException("Failed to store file to s3", e);
+        }
     }
 }
