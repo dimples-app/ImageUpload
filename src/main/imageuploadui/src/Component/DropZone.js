@@ -11,7 +11,7 @@ function DropZone(props) {
         const formData = new FormData();
         formData.append("file", file);
 
-        axios.post(`http://localhost:8080/api/v1/user-profile/${userProfileId}/upload`.formData, {
+        axios.post(`http://localhost:8080/api/v1/user-profile/${userProfileId}/image/upload`,formData, {
             headers: {
                 "Content-Type": "multipart/form-data"
             }
