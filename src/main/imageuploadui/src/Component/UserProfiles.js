@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from 'axios'
+import DropZone from './DropZone';
 
 function UserProfiles(props) {
 
@@ -20,8 +21,12 @@ function UserProfiles(props) {
     return userProfiles.map((userProfile, index) => {
       return (
       <div key={index}>
+          <br />
+          <br />
           <h3>{userProfile.userName}</h3>
-           <p>{userProfile.userProfileID}</p>
+          <p>{userProfile.userProfileID}</p>
+          <DropZone />
+          <br />
       </div>)
     })
 }
