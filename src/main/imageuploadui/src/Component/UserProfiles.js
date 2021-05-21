@@ -25,7 +25,7 @@ function UserProfiles(props) {
           <br />
           <h3>{userProfile.userName}</h3>
           <p>{userProfile.userProfileID}</p>
-          <DropZone userProfileId={userProfile.userProfileId}/>
+          <DropZone {...userProfile}/>
           <br />
       </div>)
     })

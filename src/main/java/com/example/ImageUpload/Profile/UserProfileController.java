@@ -31,7 +31,7 @@ public class UserProfileController {
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public  void uploadUserProfileImage(@PathVariable("userProfileId") UUID userProfileId,
-                                        @RequestParam("file")MultipartFile file) {
+                                        @RequestParam("file") MultipartFile file) {
         userProfileService.uploadUserProfileImage(userProfileId, file);
     }
 }
