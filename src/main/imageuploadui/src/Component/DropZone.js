@@ -28,7 +28,7 @@ function DropZone(props) {
           <input {...getInputProps()} />
           {
             isDragActive ?
-              <p>... Drop the files here ...</p> :
+              <h3>... Drop the files here ...</h3> :
               <p>Drag 'n' drop some files here, or Click to select files</p>
           }
         </div>
