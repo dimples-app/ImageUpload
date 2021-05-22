@@ -45,12 +45,26 @@ public class UserProfileService {
 
         String path = String.format("%s/%s", BucketName.PROFILE_IMAGE.getBucketName(), user.getUserProfileID());
         String filename = String.format("%s-%s", file.getName(), UUID.randomUUID());
+
         try {
             fileStore.save(path, filename, Optional.of(metaData), file.getInputStream());
-        } catch (IOException error) {
-            throw  new IllegalStateException(error);
+            user.setUserProfileLink(filename);
+        } catch (IOException e) {
+            throw new IllegalStateException(e);
         }
 
+    }
+
+    byte[] downloadUserProfileImage(UUID userProfileId) {
+        UserProfile user = getUserProfileIfNoError(userProfileId);
+
+        String path = String.format("%s/%s",
+                BucketName.PROFILE_IMAGE.getBucketName(),
+                user.getUserProfileID());
+
+        return user.getUserProfileLink()
+                .map(key -> fileStore.download(path, key))
+                .orElse(new byte[0]);
 
     }
 

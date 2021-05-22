@@ -13,8 +13,8 @@ public class InMemoryUserProfileDataStore {
     private  static List<UserProfile> USER_PROFILES = new ArrayList<>();
 
     static {
-        USER_PROFILES.add(new UserProfile(UUID.randomUUID(), "alexgarcia", null));
-        USER_PROFILES.add(new UserProfile(UUID.randomUUID(), "marksmith", null));
+        USER_PROFILES.add(new UserProfile(UUID.fromString("a114815e-60a0-4782-b8f8-b8be50505b1d"), "alexgarcia", null));
+        USER_PROFILES.add(new UserProfile(UUID.fromString("9fb778c9-96eb-40e8-a915-e3c6a2f4fe5d"), "marksmith", null));
     }
 
     public List<UserProfile> getUserProfiles() {
