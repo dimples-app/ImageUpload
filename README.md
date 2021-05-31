@@ -28,3 +28,7 @@ Full stack application for Image Upload with drag and drop images. Created with 
 
 ![Home](https://github.com/dimples-app/ImageUpload/blob/master/Assets/ImageUpload.png)
 
+
+### Project Kanban Board
+
+(https://github.com/dimples-app/ImageUpload/projects/1)
