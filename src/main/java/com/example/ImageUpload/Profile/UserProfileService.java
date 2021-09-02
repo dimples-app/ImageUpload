@@ -27,13 +27,7 @@ public class UserProfileService {
     }
 
     public void uploadUserProfileImage(UUID userProfileId, MultipartFile file) {
-        /**
-         * TODO - CHECK FILE is Image
-         * CHECK is not Empty
-         * if user exist
-         * STORE Image
-         * Grab metadata
-         */
+
         isFileEmpty(file);
 
         isFileTypeImage(file);
